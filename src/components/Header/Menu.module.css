@@ -1,0 +1,22 @@
+.humburger {
+  background-color: rgb(34, 35, 36);
+  color: white;
+  padding: 10px 5px 0 5px;
+  display: none;
+  cursor: pointer;
+  position: fixed;
+  top: 20px;
+  right: 40px;
+}
+
+.humburfer span {
+  background-color: white;
+  width: 30px;
+  height: 1px;
+  display: block;
+  margin-bottom: 7px;
+}
+.humburfer span:nth-child(1) {
+  width: 20px;
+  margin-left: 10px;
+}
