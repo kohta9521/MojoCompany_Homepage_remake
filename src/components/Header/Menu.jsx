@@ -1,96 +1,62 @@
-"use client";
-
 import styles from "./Menu.module.css";
 
 import Link from "next/link";
-import React, { useState } from 'react';
 
-export default function  Menu()  {
 
-  const [ openMenu, setOpenMenu] = useState(false);
-  const menuFunction = () => {
-    setOpenMenu(!openMenu);
-  }
+const Menu = () => {
+
+  const menuList = [
+    {
+      id: 1,
+      text: "Home",
+      link: "/",
+    },
+    {
+      id: 1,
+      text: "Mojoについて",
+      link: "/about",
+    },
+    {
+      id: 2,
+      text: "サービス内容",
+      link: "/service",
+    },
+    {
+      id: 3,
+      text: "メンバー",
+      link: "/member",
+    },
+    {
+      id: 4,
+      text: "研修を検討している企業や団体の方は",
+      link: "/qaf",
+    },
+    {
+      id: 5,
+      text: "お問合せ",
+      link: "/conact",
+    },
+    {
+      id: 6,
+      text: "クラウドファンディングで支援してくださった企業・団体と個人の皆さま",
+      link: "/sponsor",
+    }
+  ]
 
   return (
     <>
-    <div className={styles.nav}>
-      <nav>
+      <div className={styles.main}>
         <ul>
-          <li>
-            <Link href="/">
-              <p>メニュー</p>
-            </Link>
-          </li>
-          <li>
-            <Link href="/">
-              <p>メニュー</p>
-            </Link>
-          </li>
-          <li>
-            <Link href="/">
-              <p>メニュー</p>
-            </Link>
-          </li>
-          <li>
-            <Link href="/">
-              <p>メニュー</p>
-            </Link>
-          </li>
-          <li>
-            <Link href="/">
-              <p>メニュー</p>
-            </Link>
-          </li>
+          {
+            menuList.map((item, i) => (
+              <Link href={item.link} className={styles.link} key={item.id}>{item.text}</Link>
+            ))
+
+          }
         </ul>
-      </nav>
-      <div className={styles.container}>
-        <div className={styles.humburger} onClick={() => menuFunction()}>
-            <span className={openMenu ? styles.open : undefined}></span>
-            <span className={openMenu ? styles.open : undefined}></span>
-            <p className={openMenu ? styles.open : undefined}>Menu</p>
-        </div>
       </div>
-    </div>
-    <div className={`${styles.drawerMenu} ${openMenu ?styles.open : undefined}`}>
-      <ul>
-        <div className={styles.close} onClick={() => menuFunction()}>
-          <span></span>
-          <span></span>
-          <p>Close</p>
-        </div>
-        <li>
-          <Link href="/">
-            <p className={styles.menuTitle}>メニュー</p>
-            <p className={styles.subTitle}>私のメニュー</p>
-          </Link>
-        </li>
-        <li>
-          <Link href="/">
-            <p className={styles.menuTitle}>メニュー</p>
-            <p className={styles.subTitle}>私のメニュー</p>
-          </Link>
-        </li>
-        <li>
-          <Link href="/">
-            <p className={styles.menuTitle}>メニュー</p>
-            <p className={styles.subTitle}>私のメニュー</p>
-          </Link>
-        </li>
-        <li>
-          <Link href="/">
-            <p className={styles.menuTitle}>メニュー</p>
-            <p className={styles.subTitle}>私のメニュー</p>
-          </Link>
-        </li>
-        <li>
-          <Link href="/contact">
-            <p className={styles.menuTitle}>メニュー</p>
-            <p className={styles.subTitle}>私のメニュー</p>
-          </Link>
-        </li>
-      </ul>
-    </div>
     </>
   )
 }
+
+export default Menu;
